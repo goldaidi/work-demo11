@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <meta name="description" content="">
+    <!-- icon -->
+    <script src="https://kit.fontawesome.com/eecb5127e2.js" crossorigin="anonymous"></script>
+
+    <script
+    src="https://code.jquery.com/jquery-2.2.4.min.js"
+    integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+    crossorigin="anonymous"></script>
+
+    <!--slider-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"></script>
+ 
+    <!-- Bootstrap CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Cardo:400i|Rubik:400,700&display=swap");
+        :root {
+            --font-sans: "Rubik", sans-serif;
+            --font-serif: "Cardo", serif;
+            --bg-purple: #0E163F;
+        }
+        body {
+            margin: 0 0 0;
+            font-family: var(--font-sans);
+        }
+        img {
+            max-width: 100%;
+            vertical-align: inherit;
+        }
+
+        /* font_style */
+        .txt-title {
+            display: inline-block;
+            font-size: 3.2rem !important;
+            line-height: 1.2;
+            font-weight: bold;
+            color: #00204d;
+        }
+        .txt-lg {
+            font-size: 3rem !important;
+            color: #00204d;
+        }
+        .txt-md {
+            font-size: 2rem !important;
+        }
+        .txt-sm {
+            font-size: 1.25rem !important;
+        }
+        .txt-xs {
+            font-size: 1rem !important;
+        }
+        @media(max-width:576px) {
+            .txt-title {
+                font-size: 2.6rem !important;
+            }
+            .txt-lg {
+                font-size: 1.8rem !important;
+            }
+            .txt-md {
+                font-size: 1.4rem !important;
+            }
+            .txt-sm {
+                font-size: 1.1rem !important;
+            }
+            .txt-xs {
+                font-size: 0.9rem !important;
+            }
+        }
+
+        .txt-shadow {
+            text-shadow:2px 2px 5px rgba(0,0,0,.5);
+        }
+        .txt-bold {
+            font-weight: bold;
+        }
+        .txt-center {
+            text-align: center;
+        }
+        .txt-gray {
+            color: #41505a;
+        }
+        .txt-white {
+            color: #ffffff;
+        }
+
+        /**/
+        header {
+            position: relative;
+        }
+        .bg_img {
+            background-image: url("https://x.webdo.cc/userfiles/27760799/image/Cp-hero-arctic.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 55vh;
+            /* filter: grayscale(30%); */
+        }
+        .bg_overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-color: rgba(0,0,0,0.3);
+        }
+        .bg_overlay a {
+            display: inline-block;
+            border-radius: 10px;
+            padding: .3rem 1rem;
+            margin: 1rem 0;
+            margin-right: 1rem;
+            border: 1px solid #e2e2e2;
+            background-color: #e2e2e2;
+            color: #00204d;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .bg_overlay a:hover {
+            display: inline-block;
+            border-radius: 10px;
+            padding: .3rem 1rem;
+            margin: 1rem 0;
+            margin-right: 1rem;
+            border: 1px solid #fff;
+            background-color: #fff;
+            color: #00204d;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        
+        /**/
+        .bg_img2 {
+            background-image: url("https://x.webdo.cc/userfiles/27760799/image/Elements_arctic_mountains.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            /* height: 75vh; */
+            padding: 6rem 0;
+        }
+        .card-keyword > div > div {
+            border-radius: 3px;
+            padding: 3rem 1rem;
+            margin: 1rem;
+            background: -webkit-linear-gradient(bottom, #D8C9F1 10%, white 90%);
+            height: 400px;
+        }
+        @media print, screen and (max-width:768px) {
+            .card-keyword > div > div {
+                margin: .3rem;
+                margin-bottom: 1rem;
+            }
+        }
+        @media print, screen and (max-width:576px) {
+            .card-keyword > div > div {
+                height: auto;
+            }
+        }
+        .card-keyword span {
+            margin-bottom: 2.2rem;
+        }
+        /**/
+        .bg_gray {
+            background-color: #F2F6F9;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            /* height: 75vh; */
+            padding: 6rem 0;
+        }
+        .card-choice > div > div {
+            border-radius: 3px;
+            padding: 3rem 1rem;
+            margin: 1rem;
+            background: #ffffff;
+            border: 1px solid #e6e6f0;
+            box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+            /* height: 480px; */
+        }
+        @media print, screen and (max-width:991px) {
+            .card-choice > div > div {
+                height: auto;
+            }
+        }
+        /**/
+        .nav-link {
+            color: #a0a5aa;
+        }
+        .nav-link:focus, .nav-link:hover {
+            color: #344abe;
+        }
+        .nav-pills .nav-link {
+            border-radius: initial;
+        }
+        .nav-pills .nav-link p {
+            margin: 0;
+        }
+        .nav-pills .nav-link.active, .nav-pills .show >.nav-link {
+            background-color: initial;
+            color: #344abe;
+            border-left-style: solid;
+            border-left-width: 3px;
+            border-color: #344abe;
+        }
+        .tab-pane ul li {
+            margin-bottom: .7rem;
+        }
+        @media print, screen and (max-width:576px) {
+            .nav-link {
+                margin: 0 1rem;
+            }
+            .nav-pills .nav-link.active, .nav-pills .show >.nav-link {
+                background-color: #344abe;
+                color: #ffffff;
+                border-radius: 3px;
+                border-left-style: none;
+            }
+        }
+        /**/
+        .bg_img3 {
+            background-image: url("https://x.webdo.cc/userfiles/27760799/image/Gradients_Arctic Mountain.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            /* height: 75vh; */
+            padding: 6rem 0;
+        }
+        .bg_img3 ul li {
+            margin-bottom: .7rem;
+        }
+        .form-title {
+            display: inline-block;
+            border: 1px solid #ffffff;
+            padding: .3rem 1rem;
+        }
+        /**/
+        .btn-download div {
+            width: 200px;
+        }
+        .btn-download a {
+            display: inline-block;
+            border-radius: 10px;
+            padding: .3rem 1rem;
+            margin: 1rem 0;
+            border: 1px solid #00204d;
+            background-color: #00204d;
+            color: #fff;
+            text-decoration: none;
+        }
+        .btn-download a:hover {
+            background-color: #fff;
+            color: #00204d;
+        }
+
+        /* 湛揚 */
+        #product .p_big {
+            padding-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header class="mb-5">
+        <div class="bg_img">
+        <div class="bg_overlay d-flex align-items-center">
+            <div class="container">
+                <h1 class="w-50 d-none d-lg-block txt-title txt-white">超越標準的Microsoft 365的全面安全性保護</h1>
+                <h1 class="w-75 d-none d-md-block d-lg-none txt-title txt-white">超越標準的Microsoft 365的全面安全性保護</h1>
+                <h1 class="w-100 d-sm-block d-md-none txt-title txt-white">超越標準的Microsoft 365的全面安全性保護</h1>
+                <p class="txt-md txt-white">WithSecure™ Elements Collaboration Protection</p>
+                <a href="#program_try">立即試用</a>
+                <a href="#file_download">文件下載</a>
+            </div>
+        </div>
+        </div>
+    </header>
+
+    <section class="mb-5">
+        <div class="container">
+            <h2 class="txt-lg txt-bold">整合協作保護快速又容易</h2>
+            <p class="txt-sm">WithSecure™ Elements Collaboration Protection是Elements資訊安全平台的模組，提供您在Microsoft 365中的安全狀態概覽。
+                我們的Elements平台將漏洞管理、自動補丁管理、動態威脅情報和持續行為分析統一整合到單一使用者介面中，最大限度地優化可視性。
+                WithSecure™ Elements還為您的資訊安全提供統一的支援、服務和價格模式。
+            </p>
+        </div>
+    </section>
+
+    <section class="mb-5">
+        <div class="container">
+            <h2 class="txt-lg txt-bold">產品概述</h2>
+            <div class="row">
+                <div class="col-12 col-sm-6">
+                    <p class="txt-sm">隨著越來越多的組織依賴標準的Microsoft 365安全性，駭客和其他惡意行為者就更有動力設計可以繞過標準性保護的攻擊手法。</p>
+                </div>
+                <div class="col-12 col-sm-6">
+                    <p class="txt-sm">Elements Collaboration Protection 保護完整的Microsoft 365環境，包括Exchange、SharePoint、OneDrive和Teams。</p>
+                </div>
+                <div class="col-12 col-sm-6">
+                    <p class="txt-sm">Elements Collaboration Protection 提供卓越的檢測率，保護您的組織免受惡意攻擊。</p>
+                </div>
+                <div class="col-12 col-sm-6">
+                    <p class="txt-sm">我們的解決方案為Microsoft 365本地安全功能增加了額外的保護層，面對進階的網路威脅，如惡意軟體、勒索軟體、被入侵的帳戶、釣魚和有針對性的攻擊。</p>
+                </div>
+
+                <div class="w-100"></div>
+                <video class="col-12" autoplay="" loop="" muted="" data-interval-id="210" data-percent25-sent="true" data-percent50-sent="true">
+                    <source src="https://www.withsecure.com/content/dam/with-secure/en/page-images/solutions/edr/withsecure_elements_edr_dashboard_EN.webm" type="video/webm">
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="bg_img2 d-flex align-items-center">
+            <div class="container">
+                <h2 class="txt-lg txt-bold mb-5">Collaboration Protection 主要關鍵優勢</h2>
+                <div class="card-keyword row d-flex">
+                    <div class="col-12 col-sm-6 ">
+                        <div>
+                            <span class="fa-stack fa-2x">
+                                <i class="fas fa-check fa-stack-1x"></i>
+                                <i class="far fa-circle fa-stack-2x"></i>                    
+                            </span>
+                            <p class="txt-sm"><span class="txt-bold">專為Microsoft Office Online設計</span>，以包含使用雲端連接的Microsoft 365解決方案在混合工作的所有面向。</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <div>
+                            <span class="fa-stack fa-2x">
+                                <i class="fas fa-check fa-stack-1x"></i>
+                                <i class="far fa-circle fa-stack-2x"></i>                    
+                            </span>
+                            <p class="txt-sm"><span class="txt-bold">無需在端點上進行任何操作。</span>即使是個人設備也能受到保護，因為所有操作都在雲端進行。</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <div>
+                            <span class="fa-stack fa-2x">
+                                <i class="fas fa-check fa-stack-1x"></i>
+                                <i class="far fa-circle fa-stack-2x"></i>                    
+                            </span>
+                            <p class="txt-sm"><span class="txt-bold">幫助保護用戶的數位身份</span>，例如檢測其密碼是否遭到破壞。</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <div>
+                            <span class="fa-stack fa-2x">
+                                <i class="fas fa-check fa-stack-1x"></i>
+                                <i class="far fa-circle fa-stack-2x"></i>                    
+                            </span>
+                            <p class="txt-sm"><span class="txt-bold">持續保護，所有項目在瀏覽時都會被檢查。</span>這包括郵件、聯絡人、邀請和儲存在OneDrive和SharePoint中的檔案及透過Teams進行共享的內容。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-5">
+        <div class="bg_gray d-flex align-items-center">
+            <div class="container">
+                <h2 class="txt-lg txt-bold mb-5">為什麼選擇WithSecure™ Elements Collaboration Protection？</h2>
+                <div class="card-choice row">
+                    <div class="col-12 col-lg-4">
+                        <div>
+                            <img src="https://x.webdo.cc/userfiles/27760799/image/Full Microsoft 365 protection_icon01.png" alt="">
+                            <h3 class="txt-sm txt-bold mb-4">完整的Microsoft 365保護</h3>
+                            <p class="txt-xs">在任何設備上，保護您的Exchange、SharePoint、OneDrive和Teams協作免受最複雜和隱藏的攻擊。</p>
+                            <p class="txt-xs">94％的惡意軟體是透過電子郵件傳遞的，人們總是會點擊錯誤的內容。但是，當使用Elements Collaboration Protection時，您的組織甚至可以防範最先進的電子郵件威脅。</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4">
+                        <div>
+                            <img src="https://x.webdo.cc/userfiles/27760799/image/Safeguard your business from compromised accounts_icon02.png" alt="">
+                            <h3 class="txt-sm txt-bold mb-4">保護業務免受帳戶被入侵的風險</h3>
+                            <p class="txt-xs">從一個被入侵的帳戶，攻擊者可以獲取對公司機敏資訊的瀏覽權限。早期檢測可以讓管理員有寶貴的時間來驗證用戶身份，並在資料變得可供更廣泛的犯罪使用前採取行動。</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4">
+                        <div>
+                            <img src="https://x.webdo.cc/userfiles/27760799/image/Cost-effective advanced security_icon03.png" alt="">
+                            <h3 class="txt-sm txt-bold mb-4">成本效益的進階安全功能</h3>
+                            <p class="txt-xs">獲得進階安全功能，如沙箱技術，而無需購買更昂貴的Microsoft 365方案。在維持IT成本和具有競爭力的同時，應對現有和新興的威脅。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-5">
+        <div class="container">
+            <h2 class="txt-lg txt-bold mb-5">無與倫比的安全功能</h2>
+            <div class="d-flex align-items-start row">
+                <div class="nav flex-column nav-pills me-0 me-sm-3 p-0 col-12 col-sm-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    <button class="nav-link active" id="v-pills-01-tab" data-bs-toggle="pill" data-bs-target="#v-pills-01" type="button" role="tab" aria-controls="v-pills-01" aria-selected="true"><p class="txt-sm txt-bold">阻止進階惡意軟體</p></button>
+                    <button class="nav-link" id="v-pills-02-tab" data-bs-toggle="pill" data-bs-target="#v-pills-02" type="button" role="tab" aria-controls="v-pills-02" aria-selected="false"><p class="txt-sm txt-bold">管理方便</p></button>
+                    <button class="nav-link" id="v-pills-03-tab" data-bs-toggle="pill" data-bs-target="#v-pills-03" type="button" role="tab" aria-controls="v-pills-03" aria-selected="false"><p class="txt-sm txt-bold">受損帳戶檢測</p></button>
+                    <button class="nav-link" id="v-pills-04-tab" data-bs-toggle="pill" data-bs-target="#v-pills-04" type="button" role="tab" aria-controls="v-pills-04" aria-selected="false"><p class="txt-sm txt-bold">輕鬆部署</p></button>
+                    <button class="nav-link" id="v-pills-05-tab" data-bs-toggle="pill" data-bs-target="#v-pills-05" type="button" role="tab" aria-controls="v-pills-05" aria-selected="false"><p class="txt-sm txt-bold">網址保護</p></button>
+                </div>
+                <div class="tab-content col-12 col-sm-8 ms-auto mt-3 mt-sm-0" id="v-pills-tabContent">
+                    <div class="tab-pane fade show active" id="v-pills-01" role="tabpanel" aria-labelledby="v-pills-01-tab">
+                        <p class="txt-sm mb-4">憑藉即時威脅情報和精細調校的機器學習技術，WithSecure™ Elements Collaboration Protection 現在可以保護您在 Microsoft 365 上的電子郵件和其他協作服務免受病毒、木馬、勒索軟體和其他進階惡意軟體的攻擊。</p>
+                        <ul class="txt-sm">
+                            <li>透過掃描 Exchange 電子郵件中的附帶的有害內容或在 SharePoint、OneDrive 或 Teams 中儲存的檔案，檢測進階威脅。</li>
+                            <li>使用機器學習和沙箱技術進行進階威脅分析，分析虛擬環境中潛在的惡意檔案，識別和阻止最複雜的零日惡意軟體和攻擊。</li>
+                            <li>利用從 WithSecure™ Security Cloud 收集的數千萬安全客戶的即時威脅情報，更快、更好地保護免受新興威脅的影響。</li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane fade" id="v-pills-02" role="tabpanel" aria-labelledby="v-pills-02-tab">
+                        <p class="txt-sm mb-4">透過單一基於雲端的控制台管理所有內容。WithSecure™ Elements Security Center 簡化了端點安全組件和整合工具的部署、管理和監控。</p>
+                        <ul class="txt-sm">
+                            <li>在單一的入口網站中無憂地進行管理。</li>
+                            <li>完全整合第三方管理工具的準備。</li>
+                            <li>自訂報告功能。</li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane fade" id="v-pills-03" role="tabpanel" aria-labelledby="v-pills-03-tab">
+                        <p class="txt-sm mb-4">遭受入侵的帳戶是犯罪分子進入組織的一種簡單方式。攻擊可能透過釣魚活動、勒索軟體攻擊或冒充攻擊進行。一旦帳戶遭受入侵，很難檢測攻擊，因為它們來自合法的公司用戶帳戶。</p>
+                        <ul class="txt-sm">
+                            <li>我們的遭受入侵的電子郵件帳戶檢測功能安全地檢查您的使用者電子郵件地址，並立即通知您，如果您的公司在網路上有遭受入侵的帳戶。</li>
+                            <li>公司概觀顯示組織內的遭受入侵的帳戶數量（如果有）。</li>
+                            <li>它還提供關於遭受入侵帳戶的嚴重程度的資訊，根據被破壞的資訊類型以及這些帳戶是否仍然可以被利用。</li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane fade" id="v-pills-04" role="tabpanel" aria-labelledby="v-pills-04-tab">
+                        <p class="txt-sm mb-4">WithSecure™ Elements Collaboration Protection 可在幾分鐘內輕鬆部署。</p>
+                        <ul class="txt-sm">
+                            <li>安裝精靈只需要管理員建立連接並授予權限，即可開始保護 Microsoft 365 服務。</li>
+                            <li>利用雲對雲整合，不需要像傳統的安全電子郵件閘道解決方案那樣重新路由郵件。</li>
+                            <li>WithSecure 的預設策略可用於加快部署。具有規則的預設策略還有助於消除可能導致安全環境暴露和無效的配置錯誤。</li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane fade" id="v-pills-05" role="tabpanel" aria-labelledby="v-pills-05-tab">
+                        <p class="txt-sm mb-4">郵件保護能夠檢測使用者未注意到的威脅。WithSecure™ Elements Collaboration Protection 識別並阻止繞過人為控制的惡意檔案和網址。</p>
+                        <ul class="txt-sm">
+                            <li>URL 保護主動預防 Microsoft 365 使用者瀏覽惡意或不需要的內容。它還禁止使用者被誘騙瀏覽看似合法的釣魚和惡意網站。</li>
+                            <li>掃描每個 Exchange 項目的內容，並從 WithSecure 的安全雲查詢包含的 URL 的信譽。如果該連結被判定為惡意，將阻止對該 URL 的所有瀏覽。</li>
+                            <li>對包括電子郵件、行事曆邀請和任務在內的所有內容類型進行惡意內容掃描。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div id="program_try" class="bg_img3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-6">
+                        <h2 class="txt-lg txt-white txt-bold mb-5">想要瞭解更多資訊？</h2>
+                        <p class="txt-sm txt-white txt-bold">獲取針對 WithSecure Elements 平台的無義務定價資訊，量身定制符合您需求的方案。</p>
+                        <ul class="txt-sm txt-white txt-bold">
+                            <li>彈性定價 - 我們提供模組化和靈活的定價模式，包括年度授權、月度授權和基於使用量的安全方案。</li>
+                            <li>全方位平台 - 提升您的安全能力，全面保護免受各種類型的網路威脅，從有針對性的攻擊到零時差勒索軟體。</li>
+                            <li>擴展您的專業知識 - 我們的認證合作夥伴可以提供 Elements 作為托管服務，您還可以將疑難案例升級至 WithSecure 專家服務，或使用我們的共同監控服務。</li>
+                        </ul>
+                        <h3 class="form-title txt-sm txt-white txt-bold mt-3">立即填寫資訊，我們將儘快與您聯繫。</h3>
+                    </div>
+                    <div class="col-6">
+                        <iframe src="https://www.bvtl.com.tw/%E8%A1%A8%E5%96%AEcollaboration-protection-%E8%A9%A6%E7%94%A8/" width="400px" height="600px" style="border:none;">
+                            你的瀏覽器不支援 iframe
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer id="file_download">
+        <div class="container">
+            <div class="row py-5">
+                <div class="btn-download col-12 col-sm-6 col-md-3">
+                    <h3 class="txt-sm">Elements Collaboration Protection DM</h3>
+                    <div>
+                        <img src="https://www.fservice.com.tw/wp-content/uploads/2023/07/T-Tech_WithSecure_Elements_Collaboration_Protection_One_pager_EN.png" alt="">
+                    </div>
+                    <a href="https://www.t-tech.com.tw/portal_a1.php?owner_num=a1_77696&button_num=a1" target="_blank"><i class="fas fa-file-download"></i>&emsp;前往下載</a>
+                </div>
+                <div class="btn-download col-12 col-sm-6 col-md-3">
+                    <h3 class="txt-sm">Elements Collaboration Protection 型錄</h3>
+                    <div>
+                        <img src="https://www.fservice.com.tw/wp-content/uploads/2023/07/T-Tech_WithSecure_Elements_Collaboration_Protection_Brochure_EN.png" alt="">
+                    </div>
+                    <a href="https://www.t-tech.com.tw/portal_a1.php?owner_num=a1_77695&button_num=a1" target="_blank"><i class="fas fa-file-download"></i>&emsp;前往下載</a>
+                </div>
+                <div class="btn-download col-12 col-sm-6 col-md-3">
+                    <h3 class="txt-sm">Elements Collaboration Protection 概述</h3>
+                    <div>
+                        <img src="https://www.fservice.com.tw/wp-content/uploads/2023/07/T-Tech_WithSecure_Elements_Collaboration_Protection_Solution_Overview_EN.png" alt="">
+                    </div>
+                    <a href="https://www.t-tech.com.tw/portal_a1.php?owner_num=a1_77694&button_num=a1" target="_blank"><i class="fas fa-file-download"></i>&emsp;前往下載</a>
+                </div>
+                <div class="btn-download col-12 col-sm-6 col-md-3">
+                    <h3 class="txt-sm">Elements Collaboration Protection 資料表</h3>
+                    <div>
+                        <img src="https://www.fservice.com.tw/wp-content/uploads/2023/07/T-Tech_WithSecure_Elements_Collaboration_Protection_Datasheet-EN.png" alt="">
+                    </div>
+                    <a href="https://www.t-tech.com.tw/portal_a1.php?owner_num=a1_77693&button_num=a1" target="_blank"><i class="fas fa-file-download"></i>&emsp;前往下載</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
